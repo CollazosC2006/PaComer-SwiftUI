@@ -29,9 +29,22 @@
 		097E37312FA91934001BB0B4 /* PaComerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaComerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		097E37882FA91C73001BB0B4 /* Exceptions for "PaComer" folder in "PaComer" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Data/Repositories/Untitled.swift,
+			);
+			target = 097E37182FA91930001BB0B4 /* PaComer */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		097E371B2FA91930001BB0B4 /* PaComer */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				097E37882FA91C73001BB0B4 /* Exceptions for "PaComer" folder in "PaComer" target */,
+			);
 			path = PaComer;
 			sourceTree = "<group>";
 		};
