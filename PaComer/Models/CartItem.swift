@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CartItem: Identifiable, Hashable {
+struct CartItem: Identifiable, Hashable, Codable {
     var id: String = UUID().uuidString
     var product: Product
     var quantity: Int
