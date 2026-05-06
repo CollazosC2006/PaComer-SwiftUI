@@ -77,7 +77,7 @@ struct MockRestaurantRepository {
                 accountNumberNequi: "3124578900",
                 accountNumberBreb: "9876543210",
                 imageUrl: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&h=300&fit=crop",
-                whatsappNumber: ""
+                whatsappNumber: "3103093418"
             ),
             Restaurant(
                 id: "r2",
@@ -89,7 +89,7 @@ struct MockRestaurantRepository {
                 accountNumberNequi: "3258963012",
                 accountNumberBreb: "9876543210",
                 imageUrl: "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=400&h=300&fit=crop",
-                whatsappNumber: ""
+                whatsappNumber: "3103093418"
             )
         ]
     }
