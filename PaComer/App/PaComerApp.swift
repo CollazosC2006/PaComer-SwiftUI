@@ -11,7 +11,7 @@ import SwiftUI
 struct PaComerApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeScreen()
+            AppNavigation()
         }
     }
 }
