@@ -5,6 +5,7 @@
 //  Created by Collazos Zambrano, Carlos Daniel on 4/05/26.
 //
 import SwiftUI
+import Kingfisher // 1. Importamos la librería
 
 struct ProductCard: View {
     var product: Product
@@ -17,24 +18,18 @@ struct ProductCard: View {
             HStack(spacing: 16) {
                 
                 // Imagen con AsyncImage (igual que en tu Kotlin con Coil)
-                ZStack {
-                    Color(hex: "E5E7EB") // Fondo gris mientras carga
-                        .frame(width: 96, height: 96)
-                        .cornerRadius(16)
-                    
-                    if !product.imageUrl.isEmpty {
-                        AsyncImage(url: URL(string: product.imageUrl)) { phase in
-                            if let image = phase.image {
-                                image.resizable().scaledToFill()
-                            }
-                        }
-                        .frame(width: 96, height: 96)
-                        .clipShape(RoundedRectangle(cornerRadius: 16))
-                    } else {
-                        Image(systemName: "photo")
-                            .foregroundColor(.gray)
-                    }
-                }
+                KFImage(URL(string: product.imageUrl))
+                                    .placeholder {
+                                        // Lo que se muestra mientras carga la primera vez
+                                        ZStack {
+                                            Color(hex: "E5E7EB")
+                                            Image(systemName: "photo").foregroundColor(.gray)
+                                        }
+                                    }
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 96, height: 96)
+                                    .clipShape(RoundedRectangle(cornerRadius: 16))
                 
                 // Información del producto
                 VStack(alignment: .leading, spacing: 4) {

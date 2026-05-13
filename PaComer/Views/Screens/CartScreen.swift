@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct CartScreen: View {
     var onBackClick: () -> Void
@@ -160,19 +161,27 @@ struct GroupedCartItemCard: View {
             }) {
                 HStack(alignment: .center, spacing: 12) {
                     
-                    // Imagen
+                    // 2. REEMPLAZAMOS AsyncImage POR KFImage
                     ZStack {
-                        Color(hex: "EEEEEE").frame(width: 64, height: 64).cornerRadius(16)
-                        if !product.imageUrl.isEmpty {
-                            AsyncImage(url: URL(string: product.imageUrl)) { phase in
-                                if let image = phase.image {
-                                    image.resizable().scaledToFill()
+                        if let url = URL(string: product.imageUrl), !product.imageUrl.isEmpty {
+                            KFImage(url)
+                                .placeholder {
+                                    ZStack {
+                                        Color(hex: "EEEEEE")
+                                        Image(systemName: "photo").foregroundColor(.gray)
+                                    }
                                 }
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 64, height: 64)
+                                .clipShape(RoundedRectangle(cornerRadius: 16))
+                        } else {
+                            ZStack {
+                                Color(hex: "EEEEEE")
+                                Image(systemName: "photo").foregroundColor(.gray)
                             }
                             .frame(width: 64, height: 64)
-                            .clipShape(RoundedRectangle(cornerRadius: 16))
-                        } else {
-                            Image(systemName: "photo").foregroundColor(.gray)
+                            .cornerRadius(16)
                         }
                     }
                     

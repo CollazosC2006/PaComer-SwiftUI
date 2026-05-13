@@ -77,18 +77,30 @@ class RestaurantMenuViewModel: ObservableObject {
     }
     
     // --- INICIALIZACIÓN ---
-    init() {
-        loadUserProfile()
+    private let repository: RestaurantRepositoryProtocol
+            
+    init(repository: RestaurantRepositoryProtocol = FirebaseRestaurantRepository()) {
+        self.repository = repository
+        
+        // 1. Ejecutamos la búsqueda a Firebase apenas nace el ViewModel
         fetchRestaurants()
+        
+        // 2. Cargamos el perfil local del usuario
+        loadUserProfile()
     }
     
     // --- FUNCIONES DE CARGA DE DATOS ---
     private func fetchRestaurants() {
-        // Por ahora usamos el mock directamente. En el futuro aquí llamaremos a Firebase.
-        self.restaurantsList = MockRestaurantRepository.getRestaurantsList()
-        
-        if !currentRestaurantId.isEmpty, let restaurant = restaurantsList.first(where: { $0.id == currentRestaurantId }) {
-            self.currentMenu = restaurant.menu
+        // Usamos el repositorio inyectado (Firebase) en lugar del Mock
+        _ = repository.getRestaurantsFlow { [weak self] downloadedRestaurants in
+            DispatchQueue.main.async {
+                self?.restaurantsList = downloadedRestaurants
+                
+                // Si ya había un restaurante abierto, actualizamos su menú por si hubo cambios en la BD
+                if let currentId = self?.currentRestaurantId, !currentId.isEmpty {
+                    self?.currentMenu = downloadedRestaurants.first(where: { $0.id == currentId })?.menu ?? []
+                }
+            }
         }
     }
     

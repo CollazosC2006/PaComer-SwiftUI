@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct RestaurantCard: View {
     var restaurant: Restaurant
@@ -15,19 +16,21 @@ struct RestaurantCard: View {
         // SOLUCIÓN AL BUG: Cambiamos "Button" por "VStack + onTapGesture"
         VStack(alignment: .leading, spacing: 0) {
             
-            // Imagen y Badge
             ZStack(alignment: .topTrailing) {
-                Color(hex: "E5E7EB") // Fondo gris mientras carga
-                    .frame(height: 160)
                 
-                if !restaurant.imageUrl.isEmpty {
-                    AsyncImage(url: URL(string: restaurant.imageUrl)) { phase in
-                        if let image = phase.image {
-                            image.resizable().scaledToFill()
+                if let url = URL(string: restaurant.imageUrl), !restaurant.imageUrl.isEmpty {
+                    KFImage(url)
+                        .placeholder {
+                            Color(hex: "E5E7EB") // Fondo gris mientras carga
                         }
-                    }
-                    .frame(height: 160)
-                    .clipped()
+                        .resizable()
+                        .scaledToFill()
+                        .frame(height: 160)
+                        .clipped() // Equivale a recubrir todo el cuadro perfectamente
+                } else {
+                    // Fallback de seguridad por si el restaurante no tiene foto
+                    Color(hex: "E5E7EB")
+                        .frame(height: 160)
                 }
                 
                 // Badge de calificación
