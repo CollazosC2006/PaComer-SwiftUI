@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		0977D7782FAD6EA5009F2EB7 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0977D7772FAD6EA5009F2EB7 /* FirebaseFirestore */; };
+		0977D77A2FAD6EA5009F2EB7 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 0977D7792FAD6EA5009F2EB7 /* FirebaseStorage */; };
+		0977D77F2FAD7CE8009F2EB7 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 0977D77E2FAD7CE8009F2EB7 /* Kingfisher */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		097E37282FA91934001BB0B4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -29,22 +35,9 @@
 		097E37312FA91934001BB0B4 /* PaComerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaComerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		097E37882FA91C73001BB0B4 /* Exceptions for "PaComer" folder in "PaComer" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Data/Repositories/Untitled.swift,
-			);
-			target = 097E37182FA91930001BB0B4 /* PaComer */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		097E371B2FA91930001BB0B4 /* PaComer */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				097E37882FA91C73001BB0B4 /* Exceptions for "PaComer" folder in "PaComer" target */,
-			);
 			path = PaComer;
 			sourceTree = "<group>";
 		};
@@ -65,6 +58,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0977D77F2FAD7CE8009F2EB7 /* Kingfisher in Frameworks */,
+				0977D7782FAD6EA5009F2EB7 /* FirebaseFirestore in Frameworks */,
+				0977D77A2FAD6EA5009F2EB7 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +121,9 @@
 			);
 			name = PaComer;
 			packageProductDependencies = (
+				0977D7772FAD6EA5009F2EB7 /* FirebaseFirestore */,
+				0977D7792FAD6EA5009F2EB7 /* FirebaseStorage */,
+				0977D77E2FAD7CE8009F2EB7 /* Kingfisher */,
 			);
 			productName = PaComer;
 			productReference = 097E37192FA91930001BB0B4 /* PaComer.app */;
@@ -208,6 +207,10 @@
 			);
 			mainGroup = 097E37102FA91930001BB0B4;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				0977D7762FAD6EA5009F2EB7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				0977D77D2FAD7BE5009F2EB7 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 097E371A2FA91930001BB0B4 /* Products */;
 			projectDirPath = "";
@@ -404,6 +407,7 @@
 				CODE_SIGN_ENTITLEMENTS = PaComer/PaComer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7WA8N749V2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -441,6 +445,7 @@
 				CODE_SIGN_ENTITLEMENTS = PaComer/PaComer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7WA8N749V2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -596,6 +601,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0977D7762FAD6EA5009F2EB7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.13.0;
+			};
+		};
+		0977D77D2FAD7BE5009F2EB7 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0977D7772FAD6EA5009F2EB7 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0977D7762FAD6EA5009F2EB7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		0977D7792FAD6EA5009F2EB7 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0977D7762FAD6EA5009F2EB7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		0977D77E2FAD7CE8009F2EB7 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0977D77D2FAD7BE5009F2EB7 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 097E37112FA91930001BB0B4 /* Project object */;
 }
